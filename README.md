@@ -21,7 +21,7 @@ pip install APScheduler
 3. 运行调度任务
 
 
-```python
+```python3
 # 每两秒报时简单示例代码：（副线程任务，需要有主任务在运行才能调度）
 import datetime
 import time
