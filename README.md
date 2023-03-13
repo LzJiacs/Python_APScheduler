@@ -8,7 +8,7 @@ pip install APScheduler
 conda install APScheduler
 ```
 
-# 三步
+# ***三步
 1. 新建一个schedulers
     （1）新建调度器schedulers
     
@@ -121,4 +121,26 @@ scheduler.start()
 |end_date (datetime / str)| 结束时间(包含)|
 |timezone (datetime.tzinfo / str)|时区|
 
+```python
+import time
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+scheduler = BlockingScheduler()
+
+
+@scheduler.scheduled_job('interval', seconds=5)
+def job1():
+    t = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+    print('job1 --- {}'.format(t))
+
+
+@scheduler.scheduled_job('cron', second='*/7')
+def job2():
+    t = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+    print('job2 --- {}'.format(t))
+
+
+scheduler.add_job(job1, 'interval', seconds=5)
+# 等同于 @scheduler.scheduled_job修饰器 修饰器不需要传任务参数，直接把接下来的def作为任务定义
+scheduler.start()
 
