@@ -69,9 +69,28 @@ if __name__ == '__main__':
 1. date触发器
 
 | 参数        | 说明         | 
-| ----------- | ----------- |
+| -------------- | -------------- |
 | run_date (datetime 或 str)      | 作业的运行日期或时间       |
-| Paragraph   | Text        |
+|timezone (datetime.tzinfo 或 str)   | 指定时区        |
+
+```python
+from datetime import datetime
+from datetime import date
+from apscheduler.schedulers.background import BackgroundScheduler
+ 
+def job_func(text):
+    print(text)
+ 
+scheduler = BackgroundScheduler()
+# 在 2017-12-13 时刻运行一次 job_func 方法
+scheduler .add_job(job_func, 'date', run_date=date(2017, 12, 13), args=['text'])
+# 在 2017-12-13 14:00:00 时刻运行一次 job_func 方法
+scheduler .add_job(job_func, 'date', run_date=datetime(2017, 12, 13, 14, 0, 0), args=['text'])
+# 在 2017-12-13 14:00:01 时刻运行一次 job_func 方法
+scheduler .add_job(job_func, 'date', run_date='2017-12-13 14:00:01', args=['text'])
+ 
+scheduler.start()
+```
 
 2.
 
