@@ -8,8 +8,11 @@ pip install APScheduler
 
 # 三步
 1. 新建一个schedulers
-2. 添加一个调度任务
-3. 运行调度任务
+    （1）新建调度器schedulers
+    BlockingScheduler : 调度器在当前进程的主线程中运行，也就是会阻塞当前线程
+    BackgroundScheduler : 调度器在后台线程中运行，不会阻塞当前线程
+3. 添加一个调度任务
+4. 运行调度任务
 
 # 每两秒报时简单示例代码：
 ```python
