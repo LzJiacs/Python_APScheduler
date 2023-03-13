@@ -20,8 +20,9 @@ pip install APScheduler
 2. 添加一个调度任务
 3. 运行调度任务
 
-# 每两秒报时简单示例代码：
+
 ```python
+# 每两秒报时简单示例代码：（副线程任务，需要有主任务在运行才能调度）
 import datetime
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -42,5 +43,31 @@ if __name__ == '__main__':
     while True:
         print(time.time())
         time.sleep(5)
+        
+        
+# 每两秒报时简单示例代码：（主线程任务）    
+import datetime
+import time
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+def timeTask():
+    print(datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3])
+
+if __name__ == '__main__':
+    # 创建schedulers
+    scheduler = BlockingScheduler()
+    
+    # 添加调度任务
+    # 调度方法：timeTask, 触发器：interval(间隔), 间隔时长 2 秒
+    scheduler.add_job(timeTask, 'interval', seconds=2)
+    # 启动
+    scheduler.start()
 ```    
+# 三类触发器：
+1.
+
+
+2.
+
+
 
