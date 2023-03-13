@@ -15,8 +15,23 @@ pip install APScheduler
 ```python
 import datetime
 import time
-from apscheduler.schedulers.backgroud import BackgroudScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 
 def timeTask():
+    print(datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3])
+
+if __name__ == '__main__':
+    # 创建schedulers
+    scheduler = BackgroundScheduler()
     
+    # 添加调度任务
+    # 调度方法：timeTask, 触发器：interval(间隔), 间隔时长 2 秒
+    scheduler.add_job(timeTask, 'interval', seconds=2)
+    # 启动
+    scheduler.start()
+    
+    while True:
+        print(time.time())
+        time.sleep(5)
+```    
 
