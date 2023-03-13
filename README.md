@@ -92,7 +92,16 @@ scheduler .add_job(job_func, 'date', run_date='2017-12-13 14:00:01', args=['text
 scheduler.start()
 ```
 
-2.
-
+2. intervalc=触发器
+| 参数        | 说明         | 
+| -------------- | -------------- |
+| weeks (int)      | 间隔几周   |
+|days (int)   | 间隔几天        |
+|hours (int)| 间隔几分钟|
+|minutes (int)| 间隔几分钟|
+|seconds (int)| 间隔几秒|
+|start_date (datetime/str)|开始时间 |
+|end_date (datetime/str)| 结束时间|
+|timezone (datetime.tzinfo/str)|时区|
 
 
