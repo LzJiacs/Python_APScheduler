@@ -66,8 +66,11 @@ if __name__ == '__main__':
     scheduler.start()
 ```    
 # 三类触发器：
-1.
-
+1. date触发器
+| 参数      | 说明 |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
 
 2.
 
