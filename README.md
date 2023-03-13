@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
 | 参数        | 说明         | 
 | ----------- | ----------- |
-| Header      | Title       |
+| run_date (datetime 或 str)      | 作业的运行日期或时间       |
 | Paragraph   | Text        |
 
 2.
