@@ -17,8 +17,8 @@ pip install APScheduler
     BackgroundScheduler : 调度器在后台线程中运行，不会阻塞当前线程
     
     
-3. 添加一个调度任务
-4. 运行调度任务
+2. 添加一个调度任务
+3. 运行调度任务
 
 # 每两秒报时简单示例代码：
 ```python
