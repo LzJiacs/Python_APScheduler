@@ -142,5 +142,10 @@ def job2():
 
 scheduler.add_job(job1, 'interval', seconds=5)
 # 等同于 @scheduler.scheduled_job修饰器 修饰器不需要传任务参数，直接把接下来的def作为任务定义
+
 scheduler.start()
+```
+
+
+![本地路径](C:\Users\123\Desktop\20190522111526316.png "相对路径演示,上一级目录")
 
