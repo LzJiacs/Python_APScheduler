@@ -24,7 +24,7 @@ conda install APScheduler
 
 
 ```py
-# 每两秒报时简单示例代码：（副线程任务，需要有主任务在运行才能调度）
+# 每两秒报时简单示例代码：（副线程任务，需要有主任务在运行才能调度）part.1
 import datetime
 import time
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         time.sleep(5)
         
         
-# 每两秒报时简单示例代码：（主线程任务）    
+# 每两秒报时简单示例代码：（主线程任务） part.2
 import datetime
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -92,17 +92,33 @@ scheduler .add_job(job_func, 'date', run_date='2017-12-13 14:00:01', args=['text
 scheduler.start()
 ```
 
-2. intervalc=触发器
+2. intervalc 触发器 固定时间间隔触发。 (part.1 part.2)
 
 | 参数        | 说明         | 
 | -------------- | -------------- |
 | weeks (int)      | 间隔几周   |
 |days (int)   | 间隔几天        |
-|hours (int)| 间隔几分钟|
+|hours (int)| 间隔几小时|
 |minutes (int)| 间隔几分钟|
 |seconds (int)| 间隔几秒|
 |start_date (datetime/str)|开始时间 |
 |end_date (datetime/str)| 结束时间|
 |timezone (datetime.tzinfo/str)|时区|
+
+3. cron 触发器 在特定时间周期性地触发，和Linux crontab格式兼容。它是功能最强大的触发器。
+
+| 参数        | 说明         | 
+| -------------- | -------------- |
+| year (int / str)      | 年 4位数字   |
+|month (int / str)| 月(1-12)|
+|day (int / str)| 日(1-31)|
+|week (int / srt)|周（1-53） |
+| days_of_week (int)   | 周内第几天或星期几  (范围0-6 或者 mon,tue,wed,thu,fri,sat,sun)      |
+|hour (int)| 时(连续变量：0-23、离散变量用“，”分割：0-10，10-23，1，2，3...)|
+|minute (int)| 0-59|
+|second (int)| 0-59|
+|start_date (datetime / str)|开始时间(包含) |
+|end_date (datetime / str)| 结束时间(包含)|
+|timezone (datetime.tzinfo / str)|时区|
 
 
