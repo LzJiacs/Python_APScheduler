@@ -3,7 +3,9 @@ APScheduler的全称是Advanced Python Scheduler。它是一个轻量级的 Pyth
 
 # Install package
 ```py
+In terminal/cmd:
 pip install APScheduler
+conda install APScheduler
 ```
 
 # 三步
